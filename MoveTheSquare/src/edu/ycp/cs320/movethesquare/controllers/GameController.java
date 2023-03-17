@@ -10,18 +10,19 @@ public class GameController {
 			
 			double moveX = 0, moveY = 0;
 			
-				
-				
-					if (dx >= 0) {
-						moveX = Game.MOVE_DIST;
-					} else {
-						moveX = -Game.MOVE_DIST;
-					}
-					if (dy >= 0) {
-						moveY = Game.MOVE_DIST;
-					} else {
-						moveY = -Game.MOVE_DIST;
-					}
+			if (dx > 0) {
+				moveX = Game.MOVE_DIST;
+			}
+			else {
+				moveX = -Game.MOVE_DIST;
+			}
+			if (dy > 0 ) {
+				moveY = Game.MOVE_DIST;
+			} 
+			else {
+				moveY = -Game.MOVE_DIST;
+			}
+			
 					
 			
 				game.setCircleDx(moveX);
@@ -30,33 +31,16 @@ public class GameController {
 		
 	}
 
-	public void moveSquare(Game model, Circle circle) {
 		
-			//top
-		if((circle.getX() + model.getCircleDx() > 0) && (circle.getX() + model.getCircleDx() < model.getWidth())) 
+	public void moveSquare(Game model, Circle circle) {
+		if((circle.getX() + model.getCircleDx() > 0.0 && (circle.getX() + model.getCircleDx()) < 640.0))
 		{
 			circle.setX(circle.getX() + model.getCircleDx());
 		}
-		else {
-			circle.setX(0);
-		}
-		
-		
-		
-			//left
-		if((circle.getY() + model.getCircleDy() > 0) && (circle.getY() + model.getCircleDy() < model.getHeight()))
+		if((circle.getY() + model.getCircleDy()) > 0.0 && (circle.getY() + model.getCircleDy()) < 480.0)
 		{
 			circle.setY(circle.getY() + model.getCircleDy());
 		}
-		else {
-			circle.setY(0);
-		}
-	
-			//right
-		if((circle.getY() + model.getCircleDy() > 0) && (circle.getY() + model.getCircleDy() < model.getHeight()) && (circle.getX() < model.getWidth() - circle.getDiameter())){
-			circle.setY(circle.getY() + model.getCircleDy());
-		}
-		
 	}
 }
 	
